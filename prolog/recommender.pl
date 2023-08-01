@@ -2,7 +2,7 @@
 
 % DB operations
 
-get_movies(Row) :-
+get_movies_db(Row) :-
     connect_db,
     odbc_query('postgres', 'SELECT * FROM movies ORDER BY id ASC', Row).
 
@@ -10,7 +10,7 @@ get_movies(Row) :-
 
 assert_movies :-
     retractall(movie(_,_,_)),
-    get_movies(Row),
+    get_movies_db(Row),
     Row = row(Id, Name, GenreId),
     assert(movie(Id, Name, GenreId)),
     fail.
