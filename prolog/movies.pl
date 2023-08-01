@@ -1,12 +1,4 @@
-% DB connection
-
-:- use_module(library(odbc)).
-
-connect_db :-
-    odbc_connect('quever', _, [
-      alias(postgres),
-      open(once)
-    ]).
+:- use_module(db).
 
 % CRUD operations
 
