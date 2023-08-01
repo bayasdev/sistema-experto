@@ -9,7 +9,7 @@ CREATE TABLE genres (
 CREATE TABLE movies (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    genre_id INT,
+    genre_id INT NOT NULL,
     FOREIGN KEY (genre_id) REFERENCES genres(id) ON DELETE CASCADE
 );
 
